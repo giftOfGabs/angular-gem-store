@@ -14,21 +14,51 @@
     };
   });
 
+  app.directive('productTabs',function(){
+    return{
+      restrict:'E',
+      templateUrl:"product-tabs.html",
+      controller: function(){
+        this.tab=1;
+        this.selectTab = function(setTab){
+          this.tab = setTab;
+        };
+        this.isSelected = function(checkTab){
+          return this.tab === checkTab;
+        };
+      },
+      //controllerAs:'tab'
+    };
+  });
+
+
   app.controller('GalleryController', function(){
     this.current = 0;
     this.setCurrent = function(value){
       this.current = value || 0;
     };
   });
-
   app.controller('ReviewController',function(){
     this.review = {"createdOn":Date.now()};
     this.addReview = function(product){
       product.reviews.push(this.review);
     };
     this.review = {};
-  
   });
+
+  app.directive('productsTitle',function(){
+    return{
+      restrict: 'E',
+      templateUrl:"products-title.html"
+    };
+  });
+  app.directive('productSpecs',function(){
+    return{
+      restrict:'E',
+      templateUrl:"product-specs.html"
+    };
+  });
+
 
 	var gems = [{
     name: 'Azurite',
