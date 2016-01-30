@@ -3,7 +3,8 @@
 	app.controller('StoreController', function(){
 		this.products = gems;
 	});
-
+  /*moved this controller into the productPanels directive
+  
   app.controller('PanelController', function(){
     this.tab=1;
     this.selectTab = function(setTab){
@@ -12,12 +13,12 @@
     this.isSelected = function(checkTab){
       return this.tab === checkTab;
     };
-  });
+  });*/
 
-  app.directive('productTabs',function(){
+  app.directive('productPanels',function(){
     return{
       restrict:'E',
-      templateUrl:"product-tabs.html",
+      templateUrl:"product-panels.html",
       controller: function(){
         this.tab=1;
         this.selectTab = function(setTab){
@@ -27,7 +28,7 @@
           return this.tab === checkTab;
         };
       },
-      //controllerAs:'tab'
+      controllerAs:'panel'
     };
   });
 
