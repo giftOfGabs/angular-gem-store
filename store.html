@@ -27,19 +27,12 @@
 		<div class="product-row" ng-repeat="product in store.products | orderBy: '-price'">
 			<h3><products-title></products-title> 
 			</h3>
-			<!-- Image Gallery  -->
-			<div class="gallery" ng-show="product.images.length" ng-controller="GalleryController as gallery">
-				<div class="img-wrap">
-			  		<img ng-src="{{product.images[gallery.current]}}" />
-				</div>
-				<ul class="img-thumbnails clearfix">
-			  		<li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-			    		<img ng-src="{{image}}" />
-			  		</li>
-				</ul>
-			</div>
-			<button ng-show="product.canPurchase">Add to Cart</button>
-			<product-panels></product-panels>		
+			<!-- Image Gallery - product-gallery.html  -->
+			<product-gallery></product-gallery>
+	
+			<!--Panel at product-panels.html-->
+			<product-panels></product-panels>	
+			<button ng-show="product.canPurchase">Add to Cart</button>	
 		</div>		
 	</body>	
 </html>

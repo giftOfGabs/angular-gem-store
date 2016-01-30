@@ -4,7 +4,6 @@
 		this.products = gems;
 	});
   /*moved this controller into the productPanels directive
-  
   app.controller('PanelController', function(){
     this.tab=1;
     this.selectTab = function(setTab){
@@ -15,6 +14,7 @@
     };
   });*/
 
+  //element directive for product panels
   app.directive('productPanels',function(){
     return{
       restrict:'E',
@@ -32,13 +32,27 @@
     };
   });
 
-
   app.controller('GalleryController', function(){
     this.current = 0;
     this.setCurrent = function(value){
       this.current = value || 0;
     };
   });
+
+  app.directive('productGallery',function(){
+    return {
+      restrict: 'E',
+      templateUrl: "product-gallery.html",
+      controller: function(){
+        this.current = 0;
+        this.setCurrent = function(value){
+          this.current = value || 0;
+        };
+      },
+      controllerAs:'gallery'
+    };
+  });
+
   app.controller('ReviewController',function(){
     this.review = {"createdOn":Date.now()};
     this.addReview = function(product){
@@ -69,6 +83,7 @@
     rarity: 7,
     color: '#CCC',
     faces: 14,
+    canPurchase: false,
     images: [ ],
     reviews: [{
       stars: 5,
@@ -89,6 +104,7 @@
     rarity: 6,
     color: '#EEE',
     faces: 12,
+    canPurchase: true,
     images: [
       "images/hee.jpg",
     ],
@@ -111,6 +127,7 @@
     rarity: 2,
     color: '#000',
     faces: 6,
+    canPurchase: true,
     images: [
       "images/marc.jpg",
     ],
