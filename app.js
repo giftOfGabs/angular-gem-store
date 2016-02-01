@@ -1,57 +1,8 @@
 (function(){
-	var app = angular.module('gemStore', []);
+	var app = angular.module('gemStore', ['store-products']);
 	app.controller('StoreController', function(){
 		this.products = gems;
 	});
-  /*moved this controller into the productPanels directive
-  app.controller('PanelController', function(){
-    this.tab=1;
-    this.selectTab = function(setTab){
-      this.tab = setTab;
-    };
-    this.isSelected = function(checkTab){
-      return this.tab === checkTab;
-    };
-  });*/
-
-  //element directive for product panels
-  app.directive('productPanels',function(){
-    return{
-      restrict:'E',
-      templateUrl:"product-panels.html",
-      controller: function(){
-        this.tab=1;
-        this.selectTab = function(setTab){
-          this.tab = setTab;
-        };
-        this.isSelected = function(checkTab){
-          return this.tab === checkTab;
-        };
-      },
-      controllerAs:'panel'
-    };
-  });
-
-  app.controller('GalleryController', function(){
-    this.current = 0;
-    this.setCurrent = function(value){
-      this.current = value || 0;
-    };
-  });
-
-  app.directive('productGallery',function(){
-    return {
-      restrict: 'E',
-      templateUrl: "product-gallery.html",
-      controller: function(){
-        this.current = 0;
-        this.setCurrent = function(value){
-          this.current = value || 0;
-        };
-      },
-      controllerAs:'gallery'
-    };
-  });
 
   app.controller('ReviewController',function(){
     this.review = {"createdOn":Date.now()};
@@ -60,20 +11,6 @@
     };
     this.review = {};
   });
-
-  app.directive('productsTitle',function(){
-    return{
-      restrict: 'E',
-      templateUrl:"products-title.html"
-    };
-  });
-  app.directive('productSpecs',function(){
-    return{
-      restrict:'E',
-      templateUrl:"product-specs.html"
-    };
-  });
-
 
 	var gems = [{
     name: 'Azurite',
@@ -148,7 +85,4 @@
       createdOn: 1397490980837
     }]
   }];  				
-
-	
-	
 })();

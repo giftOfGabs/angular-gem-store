@@ -10,18 +10,14 @@
 		<style>
 			img{max-width:100%;}
 			.img-wrap{max-width:200px;}
-			ul.img-thumbnails{max-width:75px;}
-
+			ul.img-thumbnails img{max-width:75px;}
 			.ng-invalid.ng-dirty{border-color:red;}
-			.ng-valid.ng-dirty{border-color:green;}
-			
-			.product-row{padding: 0 0 25px;margin: 0 0 25px;border-bottom: 3px solid #ccc;}
-		
-			
-
+			.ng-valid.ng-dirty{border-color:green;}			
+			.product-row{padding: 0 0 25px;margin: 0 0 25px;border-bottom: 3px solid #ccc;}		
 		</style>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 		<script src="app.js"></script>
+		<script src="products.js"></script>
 	</head>
 	<body class="container" ng-controller="StoreController as store">
 		<div class="product-row" ng-repeat="product in store.products | orderBy: '-price'">
