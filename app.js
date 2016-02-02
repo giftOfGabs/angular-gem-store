@@ -1,8 +1,22 @@
 (function(){
 	var app = angular.module('gemStore', ['store-products']);
-	app.controller('StoreController', function(){
+	
+  app.controller('StoreController', function(){
 		this.products = gems;
 	});
+
+  /*gems array woudl more than likely be populated by json data from api
+
+    app.controller('StoreController', ['$http',function($http){
+      var store = this;
+      store.products = [];
+      $http.get('/store-products.json').success(function(data){
+        store.products = data;
+      });
+    }]);
+
+
+  */
 
   app.controller('ReviewController',function(){
     this.review = {"createdOn":Date.now()};
